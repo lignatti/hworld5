@@ -38,8 +38,15 @@ public class HelloWorld {
     @Path("/json/{name}")
     @Produces("application/json")
     public String getHelloWorldJSON(@PathParam("name") String name) {
+	try{
+
         System.out.println("name: " + name);
         return "{\"result\":\"" + helloService.createHelloMessage(name) + "\"}";
+
+	}
+	catch(Throwable e) {
+	}
+	return "";
     }
 
     @POST
